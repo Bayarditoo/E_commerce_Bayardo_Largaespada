@@ -12,9 +12,20 @@ console.log(card_css);
 
     /* Break en For */
 
-    for (i = 0; i < 10; i++) {
-        if (i === 4) {
+    /*for (i = 0; i < 10; i++) {
+        if (i === 5) {
             break;
         }
+        console.log(i);
+    }
+
+    /* Exercise 1 */
+
+    for (i = 0; i <= 20; i++) {
+        console.log(i);
+    }
+    /* Exercise 2 */
+
+    for (i = 0; i <= 10; i++) {
         console.log(i);
     }
