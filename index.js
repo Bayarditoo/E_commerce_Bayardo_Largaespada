@@ -1,8 +1,8 @@
 const titulo = document.querySelector("h1");
 titulo.innerText = "Productos"
 
-const Prod = []
-for (let i = 1; i <= 3; i++) {
+const Prod = [];
+for (let i = 1; i <= 4; i++) {
 
     const Card = `
         <div class="card mb-3" style="width: 18rem;">
@@ -16,3 +16,12 @@ for (let i = 1; i <= 3; i++) {
 
         Prod.push(Card);
         }   document.querySelector('section').innerHTML = Prod.join().replaceAll("," , "");
+
+let i = 0;
+    while (i <= 3) {
+        if (i == 2) {
+            break;
+        }
+        console.log(i);
+        i++;
+    }
