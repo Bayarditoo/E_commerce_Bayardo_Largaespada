@@ -17,3 +17,4 @@ for (let i = 1; i <= 4; i++) {
         Prod.push(Card);
         }   document.querySelector('section').innerHTML = Prod.join().replaceAll("," , "");
 
+/* Solo el js se agrega */
