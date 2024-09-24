@@ -25,6 +25,7 @@ document.querySelector("section").innerHTML = Prod.join().replaceAll(",", "");*/
 sacar();*/
 
 function suma(numero1, numero2) {
-    console.log(numero1 % numero2);
+    return numero1 + numero2;
 }
-suma(2, 6);
+let resultado = suma(5,5);
+console.log(resultado);
