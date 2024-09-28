@@ -38,10 +38,17 @@ const loro = (a) => {
 console.log(loro(10));*/
 
 const user = {
-  nombre: `Bayardo`,
-  edad: 16,
-  nacionalidad: `Nicaragua`,
+  name: `Bayardo`,
+  old: 16,
+  country: `Nicaragua`,
+  hobby : `Playing call of duty`,
+  diceMentiras : function () {
+    console.log(`Bayardo dice muchas mentiras.`);
+  }
 };
-console.log(user.nombre);
-console.log(user[`edad`]);
-
+user.diceMentiras();
+console.log(user);
+console.log(`Mi nombre es: ${user.name}`);
+console.log(`I'm ${user.old} years old`);
+console.log(`My country is ${user.country}`);
+console.log(`My hobby is ${user.hobby}`);
