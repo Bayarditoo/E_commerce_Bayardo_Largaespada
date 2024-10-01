@@ -10,7 +10,7 @@ function envolverCodigo() {
             <div class="card-body">
                     <h5 class="card-title">Producto ${i}</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary bg-secondary border-0">Ver mas:</a>
+                    <a href="./productos/producto.html" class="btn btn-primary bg-secondary border-0">Ver más:</a>
             </div>
         </div>`;
 
@@ -19,6 +19,7 @@ function envolverCodigo() {
   document.querySelector("section").innerHTML = Prod.join().replaceAll(",", "");
 }
 envolverCodigo();
+
 
 /*function sacar() {
     for (let i = 1; i <= 4; i++) {
@@ -59,7 +60,7 @@ if (`name` in user) {
 } else {
   console.log(`Noo`);
 };*/
-const barca = {
+/*const barca = {
   nombreEquipo: "barca",
   integrantes: 14,
   porteros: 7,
@@ -76,4 +77,12 @@ if (preguntarEquipo === `barca`) {
   console.table(barca);
 } else if (preguntarEquipo === `madrid`) {
   console.table(madrid);
+};*/
+const nose = {
+  user : `Bayardo`,
+  years : 16,
+  nationality: `Nicaragua`,
+};
+if (`user` in nose) {
+  alert(`Si ahi esta`)
 };
