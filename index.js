@@ -84,5 +84,5 @@ const nose = {
   nationality: `Nicaragua`,
 };
 if (`user` in nose) {
-  alert(`Si ahi esta`)
+  console.log(`Si ahi esta`);
 };
