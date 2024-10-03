@@ -6,7 +6,7 @@ class Producto_1 {
     this.stock = stock;
     this.imagen = imagen;
   }
-}
+};
 const producto = new Producto_1(
   "Laptop",
   "Ninguno",
@@ -14,15 +14,14 @@ const producto = new Producto_1(
   24,
   "/E-Commerce-Bayardo-Largaespada/productos/imagenes/X250.jpg"
 );
-
-let etiquetas2 = `
-    <h1>${Producto_1.titulo}</h1>
-    <p>Detalle: ${Producto_1.detalle}</p>
-    <p>Precio: $${producto_1.precio}</p>
-    <p>Stock: ${producto_1.stock}</p>
-    <img src="${producto_1.imagen}">
+let etiquetas = `
+    <h1>${producto.titulo}</h1>
+    <p>Detalle: ${producto.detalle}</p>
+    <p>Precio: $${producto.precio}</p>
+    <p>Stock: ${producto.stock}</p>
+    <img src="${producto.imagen}">
 `;
-document.querySelector("main").innerHTML = etiquetas2;
+document.querySelector("main").innerHTML = etiquetas;
 /*let colon = {
   name: `Colon`,
   street: `Calle 1`,
@@ -60,3 +59,6 @@ const bayardoAddrees = new adress(
 );
 console.log(bayardoAddrees);
 console.log(bayardoAddrees.getAddress());*/
+let compras = [`pan`, `pizza`, `sandwich`, `burger`,1,2,3,4];
+console.log(compras[0]);
+console.log(compras.at(-2));
