@@ -1,25 +1,33 @@
-const producto = {
-  titulo: "Laptop",
-  detalle: "Ninguno",
-  precio: 200,
-  stock: 24,
-  imagen: `/E-Commerce-Bayardo-Largaespada/productos//imagenes/X250.jpg`,
-};
+class Producto_1 {
+  constructor(titulo, detalle, precio, stock, imagen) {
+    this.titulo = titulo;
+    this.detalle = detalle;
+    this.precio = precio;
+    this.stock = stock;
+    this.imagen = imagen;
+  }
+}
+const producto = new Producto_1(
+  "Laptop",
+  "Ninguno",
+  200,
+  24,
+  "/E-Commerce-Bayardo-Largaespada/productos/imagenes/X250.jpg"
+);
 
-let etiquetas = `
-    <h1>${producto.titulo}</h1>
-    <p>Detalle: ${producto.detalle}</p>
-    <p>Precio: $${producto.precio}</p>
-    <p>Stock: ${producto.stock}</p>
-    <img src="${producto.imagen}">
+let etiquetas2 = `
+    <h1>${Producto_1.titulo}</h1>
+    <p>Detalle: ${Producto_1.detalle}</p>
+    <p>Precio: $${producto_1.precio}</p>
+    <p>Stock: ${producto_1.stock}</p>
+    <img src="${producto_1.imagen}">
 `;
-
-document.querySelector("main").innerHTML = etiquetas;
-let colon = {
-  name: "Colon",
-  street: "Calle 1",
-  city: "Bayardo",
-  state: "La Paz",
+document.querySelector("main").innerHTML = etiquetas2;
+/*let colon = {
+  name: `Colon`,
+  street: `Calle 1`,
+  city: `Bayardo`,
+  state: `La Paz`,
   year: 2023,
   get: function () {
     console.log(`Esta ejecutando la funcion get`);
@@ -42,7 +50,13 @@ class adress {
   getAddress() {
     return `Mi direcciones es ${this.street}, mi nombre es ${this.name}`;
   }
-};
-const bayardoAddrees = new adress(`Bayardo`, `Calle 1`, 8, `Ciudad sandino`, 2008);
+}
+const bayardoAddrees = new adress(
+  `Bayardo`,
+  `Calle 1`,
+  8,
+  `Ciudad sandino`,
+  2008
+);
 console.log(bayardoAddrees);
-console.log(bayardoAddrees.getAddress());
+console.log(bayardoAddrees.getAddress());*/
