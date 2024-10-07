@@ -6,7 +6,7 @@ class Producto_1 {
     this.stock = stock;
     this.imagen = imagen;
   }
-};
+}
 const producto = new Producto_1(
   "Laptop",
   "Ninguno",
@@ -58,7 +58,25 @@ const bayardoAddrees = new adress(
   2008
 );
 console.log(bayardoAddrees);
-console.log(bayardoAddrees.getAddress());*/
+console.log(bayardoAddrees.getAddress());
 let compras = [`pan`, `pizza`, `sandwich`, `burger`,1,2,3,4];
 console.log(compras[0]);
-console.log(compras.at(-2));
+console.log(compras.at(-2));*/
+
+/* Arrays de objetos */
+const array = [
+  { nombre: `Bayardo`, edad: 16 },
+  { nombre: `Maria`, edad: 18 - 4 },
+];
+console.log(array.at(0).nombre);
+console.log(array.at(0).edad);
+let genteLoca = [
+  { name: `Julio`, edad: 40 },
+  { name: `Wazaa`, edad: 28 },
+  { name: `Ana`, edad: 27 },
+];
+console.log(genteLoca.at(0).edad + ` Esa es tu edad`);
+
+for (let loco  of genteLoca) {
+  console.log(`My name is ${loco.name} and my age is ${loco.edad}`);
+};
