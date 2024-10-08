@@ -5,6 +5,6 @@ const menu = [
 ];
 let menuHtml = [];
 for (const nav of menu) {
-  menuHtml.push(`<a class="nav-link btn btn-outline-primary m-2" href="${nav.href}">${nav.texto}</a>`);
+  menuHtml.push(`<a class="nav-link btn btn-outline-primary p-2" href="${nav.href}">${nav.texto}</a>`);
 };
-document.querySelector("header").innerHTML = menuHtml.join("");
+document.querySelector("header").innerHTML = menuHtml.join().replaceAll(",", "");

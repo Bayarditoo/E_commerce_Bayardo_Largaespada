@@ -4,5 +4,8 @@
     padding: 0;
 }
 header {
-    background-color: red;
+    background-color: darkgray;
+}
+.nav-link:hover {
+    background-color :darkblue;
 }
