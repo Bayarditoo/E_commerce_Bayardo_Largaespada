@@ -4,8 +4,5 @@
     padding: 0;
 }
 header {
-    background-color: darkgray;
-}
-.nav-link:hover {
-    background-color :darkblue;
+    background-color: aliceblue;
 }

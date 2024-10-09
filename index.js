@@ -20,7 +20,6 @@ function envolverCodigo() {
 }
 envolverCodigo();
 
-
 /*function sacar() {
     for (let i = 1; i <= 4; i++) {
         console.log(`Tu Numero es: ${i}`);
@@ -79,10 +78,10 @@ if (preguntarEquipo === `barca`) {
   console.table(madrid);
 };*/
 const nose = {
-  user : `Bayardo`,
-  years : 16,
+  user: `Bayardo`,
+  years: 16,
   nationality: `Nicaragua`,
 };
 if (`user` in nose) {
   console.log(`Si ahi esta`);
-};
+}
