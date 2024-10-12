@@ -77,6 +77,6 @@ let genteLoca = [
 ];
 console.log(genteLoca.at(0).edad + ` Esa es tu edad`);
 
-for (let loco  of genteLoca) {
+for (let loco of genteLoca) {
   console.log(`My name is ${loco.name} and my age is ${loco.edad}`);
 };

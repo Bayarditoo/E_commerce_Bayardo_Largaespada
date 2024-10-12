@@ -66,3 +66,40 @@ function operacion() {
   };
 };
 operacion();*/
+
+/*Class 15 Metodos de Arrays 2 !!!!!!!!!!*/
+
+/*const arreglo = [`Pedro`,`Maria`];
+const happy = arreglo.map((persona) => `(:${persona}`);
+console.log(happy);
+const suma = function (a,b) {
+  return a + b;
+};
+const sumaFlecha = (a,b) => a + b;
+console.log(sumaFlecha(5,5));
+console.log(suma(5,5));*/
+
+/*Metodo .map() */
+/*const sad = [`Ezequiel`, `Martin`, `Bayardo`];
+const happy = sad.map((elemento) => `Su nombre es: ${elemento})`);
+console.log(happy);*/
+
+/* Metodo .forEach() */
+
+const num = [3, 4, 5];
+num.forEach((num) => console.log(num - 1));
+
+/* Metodo .filter() !!!!! */
+const estudiantes = [
+  { name: `Bayardo`, calificacion: 10 },
+  { name: `Elias`, calificacion: 6 },
+  { name: `Benjamin`, calificacion: 8 },
+];
+const aprobaron = estudiantes.filter(
+  (estudiante) => estudiante.calificacion >= 6
+);
+const pasaron = estudiantes.find(
+  (estudiante) => estudiante.calificacion >= 6
+);
+console.log(aprobaron);
+console.log(pasaron);
