@@ -6,6 +6,5 @@
 header {
     display: flex;
     justify-content: space-evenly;
-    background-color: #d2e4e8;
     padding: 5px
 };

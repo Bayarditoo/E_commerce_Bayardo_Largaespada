@@ -16,7 +16,7 @@ function envolverCodigo() {
 
     Prod.push(Card);
   }
-  document.querySelector("section").innerHTML = Prod.join().replaceAll(",", "");
+  document.querySelector("main").innerHTML = Prod.join().replaceAll(",", "");
 }
 envolverCodigo();
 
@@ -84,4 +84,4 @@ const nose = {
 };
 if (`user` in nose) {
   console.log(`Si ahi esta`);
-}
+};
