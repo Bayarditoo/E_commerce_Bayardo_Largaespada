@@ -4,7 +4,8 @@
     padding: 0;
 }
 header {
-    background-color: red;
+    background-color: aliceblue;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    padding: 6px;
 };
