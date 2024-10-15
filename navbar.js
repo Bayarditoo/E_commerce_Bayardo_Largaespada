@@ -12,8 +12,10 @@ const menu = [
 
 let menuHtml = [];
 for (const nav of menu) {
-  menuHtml.push(`<a class="nav-link p-2" href="${nav.href}">${nav.texto}</a>`);
-};
+  menuHtml.push(
+    `<a class="nav-link p-2 text-white" href="${nav.href}">${nav.texto}</a>`
+  );
+}
 document.querySelector("header").innerHTML = menuHtml.join("");
 
 /* Metodo .Join() */
@@ -85,7 +87,7 @@ console.log(happy);*/
 
 /* Metodo .forEach() */
 
-const num = [3, 4, 5];
+/*const num = [3, 4, 5];
 num.forEach((num) => console.log(num - 1));
 
 /* Metodo .filter() !!!!!, el metodo filter devuelve un nuevo array con los elementos que cumplen la condicion */
@@ -114,5 +116,54 @@ const reduce = estudiantes.reduce(
 console.log(reduce);
 
 /* Metodo .sort() el metodo sort devuelve un nuevo array ordenado */
-const sort = estudiantes.sort((a,b) => a.calificacion - b.calificacion);
+const sort = estudiantes.sort((a, b) => a.calificacion - b.calificacion);
 console.log(sort);
+
+/*Clase 16 */
+
+/* .toUpperCase(): el metodo toUpperCase devuelve una copia del string en mayusculas */
+console.log("Hola".toUpperCase());
+/* .toLowerCase(): el metodo toLowerCase devuelve una copia del string en minusculas */
+console.log("Hola".toLowerCase());
+/* .split: Crea un array usando un caracter separador a partir de un string.
+En este caso el separador es el espacio.*/
+const urlSearch = `?prod=1`;
+const arrayFromUrl = urlSearch.split(`=`);
+console.log(arrayFromUrl[1]);
+/* .replaceAll(): Reemplaza todas las ocurrencias de un carácter (o patrón de caracteres)
+por otra sin afectar al string original.*/
+let gato = `goto`;
+console.log(gato.replaceAll(`o`, `a`));
+/* length: Devuelve la longitud del string.*/
+let phrase = `Esto es una frase.`;
+console.log(phrase.length);
+
+/* Metodos number */
+
+/* IsNan
+let nanny = isNaN;
+let cuatro = 5;
+console.log(isNaN(nanny));
+console.log(Number.isNaN(cuatro));*/
+/*.parseFloat() se usa para convertir un string en un numero.
+let four = `5.34`;
+console.log(Number.parseFloat(four));*/
+
+/* Metodos obejct */
+
+/* Metodo object .keys() devuelve un array con las claves de un objeto
+const objectKeys = {
+  name: `Bayardo`,
+  age: 30,
+  profession: `Web Developer`,
+};
+console.log(Object.keys(objectKeys));*/
+
+/* Metodo .values() devuelve un array con los valores de un objeto*/
+/*const objectValues = {
+  name: `Bayardo`,
+  age: 16,
+  profession: `Web Developer`,
+};
+const arrayValues = Object.values(objectValues);
+console.log(arrayValues);*/

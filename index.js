@@ -1,22 +1,3 @@
-const menu = [
-  {
-    texto: "Productos",
-    href: "/E-Commerce-Bayardo-Largaespada/productos/producto.html",
-  },
-  {
-    texto: "Pagina principal",
-    href: "/E-Commerce-Bayardo-Largaespada/index.html",
-  },
-  { texto: "Contactame", href: "/" },
-];
-
-let menuHtml = [];
-for (const nav of menu) {
-  menuHtml.push(`<a class="nav-link p-2" href="${nav.href}">${nav.texto}</a>`);
-};
-document.querySelector("header").innerHTML = menuHtml.join("");
-
-
 const titulo = document.querySelector("h1");
 titulo.innerText = "Productos";
 function dataCards() {
@@ -108,13 +89,13 @@ function dataCards() {
   ];
   const prod = data.map(
     (producto) => `
-      <div class="card col-sm-3 m-2" style="width: 18rem;">
+      <div class="card col-sm-3 m-3" style="width: 18rem;">
         <a href="#"><img src="${producto.href}" class="card-img-top img-fluid"
-          style="height: 200px; object-fit: cover;" alt="${producto.descripcion}"></a>
+          style="height: 200px;object-fit-cover;" alt="${producto.descripcion}"></a>
         <div class="card-body">
           <h5 class="card-title text-secondary">${producto.descripcion}</h5>
-          <p class="card-text text-decoration-underline text-danger">Categoría: ${producto.categoria}</p>
-          <p class="card-text">Precio: ${producto.precio}</p>
+          <p class="card-text text-decoration-underline">Categoría: ${producto.categoria}</p>
+          <p class="card-text text-danger">Precio: ${producto.precio}</p>
           <a href="./productos/producto.html?prod=${producto.id}" class="btn btn-primary bg-secondary border-0">
             Ver más
           </a>
@@ -122,5 +103,5 @@ function dataCards() {
       </div>`
   );
   document.querySelector("main").innerHTML = prod.join("");
-}
+};
 dataCards();
