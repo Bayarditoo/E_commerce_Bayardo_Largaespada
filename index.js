@@ -93,8 +93,8 @@ function dataCards() {
         <a href="#"><img src="${producto.href}" class="card-img-top img-fluid"
           style="height: 200px; object-fit: cover;" alt="${producto.descripcion}"></a>
         <div class="card-body">
-          <h5 class="card-title">${producto.descripcion}</h5>
-          <p class="card-text">Categoría: ${producto.categoria}</p>
+          <h5 class="card-title text-secondary">${producto.descripcion}</h5>
+          <p class="card-text text-decoration-underline text-danger">Categoría: ${producto.categoria}</p>
           <p class="card-text">Precio: ${producto.precio}</p>
           <a href="./productos/producto.html?prod=${producto.id}" class="btn btn-primary bg-secondary border-0">
             Ver más

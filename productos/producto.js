@@ -1,7 +1,8 @@
-let tituloProducto = document.querySelector("h3");
+let tituloProducto = document.querySelector("h5");
 let textoProducto = document.querySelector("h4");
 let textoPrecio = document.querySelector("p");
 let imagen = document.querySelector("img");
+
 let id = window.location.search.split("=").at(-1);
 
 const data = [
@@ -98,7 +99,7 @@ class Producto {
     this.stock = stock;
     this.imagen = imagen;
   }
-}
+};
 const idProducto = window.location.search.split("=").at(-1);
 const productoEncontrado = data.find(
   (producto) => producto.id === parseInt(idProducto)
@@ -107,7 +108,7 @@ if (productoEncontrado) {
   const producto = new Producto(
     productoEncontrado.descripcion,
     productoEncontrado.categoria,
-    `PRECIO: $${productoEncontrado.precio}`,
+    `PRECIO: ${productoEncontrado.precio}`,
     `ID: ${productoEncontrado.id}`
   );
   tituloProducto.innerText = producto.titulo;
@@ -116,4 +117,4 @@ if (productoEncontrado) {
   imagen.src = productoEncontrado.href;
 } else {
   console.error("Producto no encontrado");
-}
+};
