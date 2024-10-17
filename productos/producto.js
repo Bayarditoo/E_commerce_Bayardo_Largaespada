@@ -99,7 +99,7 @@ class Producto {
     this.stock = stock;
     this.imagen = imagen;
   }
-};
+}
 const idProducto = window.location.search.split("=").at(-1);
 const productoEncontrado = data.find(
   (producto) => producto.id === parseInt(idProducto)
@@ -117,4 +117,9 @@ if (productoEncontrado) {
   imagen.src = productoEncontrado.href;
 } else {
   console.error("Producto no encontrado");
-};
+}
+
+                    /* Class 17 */
+/* createElement() */
+let createElement = document.createElement("h1");
+createElement.innerText = `Hola`;
