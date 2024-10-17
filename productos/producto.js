@@ -118,8 +118,3 @@ if (productoEncontrado) {
 } else {
   console.error("Producto no encontrado");
 }
-
-                    /* Class 17 */
-/* createElement() */
-let createElement = document.createElement("h1");
-createElement.innerText = `Hola`;
