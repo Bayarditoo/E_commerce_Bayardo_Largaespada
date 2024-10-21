@@ -12,13 +12,39 @@
       crossorigin="anonymous"
     />
   </head>
+
   <body>
-    <header class="d-flex justify-content-center bg-dark flex-wrap">
-    </header>
+    <header class="d-flex justify-content-center bg-dark flex-wrap"></header>
+    <div class="categorias d-flex justify-content-center flex-wrap bg-dark">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
+        <li id="nav-item" class="nav-item d-flex">
+          <a class="nav-link text-primary" onclick="filtrarCategoria('Gaming')" href="#">Gaming</a>
+          <a class="nav-link text-primary" onclick="filtrarCategoria('Ultrabook')" href="#">Ultrabook</a>
+          <a class="nav-link text-primary" onclick="filtrarCategoria(`Business`)" href="#">Business</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Buscar productos"
+          class="form-control me-2"
+        />
+        <button
+          type="button"
+          id="searchButton"
+          class="btn btn-primary m-2"
+          onclick=""
+        >
+          Buscar
+        </button>
+      </form>
+    </div>
     <main
-      class="main-container d-flex flex-wrap justify-content-center bg-dark">
+      class="main-container d-flex flex-wrap justify-content-center bg-dark"
+    >
       <h1 class=""></h1>
-      <section class="container"></section>
+      <section class="section"></section>
     </main>
     <footer class="bg-dark">
       <h6 class="text-white">Desarrollado por Bayardo Largaespada</h6>

@@ -1,3 +1,4 @@
+const mainProductos = document.querySelector("main");
 const titulo = document.querySelector("h1");
 titulo.innerText = "Productos";
 function dataCards() {
@@ -103,5 +104,98 @@ function dataCards() {
       </div>`
   );
   document.querySelector("main").innerHTML = prod.join("");
-};
+}
 dataCards();
+
+const searchInput = document.querySelector(`#searchInput`);
+const searchButton = document.querySelector(`#searchButton`);
+
+const filtrarBusqueda = () => {
+  const filtrado = data.filter(
+    (item) => item.descripcion.toLowerCase() === searchInput.value.toLowerCase()
+  );
+  function añadirProductos() {
+    mainProductos.innerHTML = prod.join().replaceAll(",", "");
+    descripcion.innerHTML = "PRODUCTOS";
+  }
+};
+if (filtrado.length === 1) {
+  const busqueda = filtrado.map(
+    (producto) => `
+    <div class="card col-sm-3 m-3" style="width: 18rem;">
+        <a href="#"><img src="${producto.href}" class="card-img-top img-fluid"
+          style="height: 200px;object-fit-cover;" alt="${producto.descripcion}"></a>
+        <div class="card-body">
+          <h5 class="card-title text-secondary">${producto.descripcion}</h5>
+          <p class="card-text text-decoration-underline">Categoría: ${producto.categoria}</p>
+          <p class="card-text text-danger">Precio: ${producto.precio}</p>
+          <a href="./productos/producto.html?prod=${producto.id}" class="btn btn-primary bg-secondary border-0">
+            Ver más
+          </a>
+        </div>
+      </div>`
+  );
+  mainProductos.innerHTML = busqueda.join("");
+  descripcion.innerHTML = `<button id='botonEliminar' class='float-end p-2'>X</button>`;
+  const eliminar = document.querySelector("#botonEliminar");
+  eliminar.addEventListener(`click`, añadirProductos);
+} else if (filtrado.length === 0) {
+  mainProductos.innerHTML = prod.join().replaceAll(",", "");
+} else {
+  mainProductos.innerHTML = "No hay nada dog";
+}
+searchButton.addEventListener(`click`, filtrarBusqueda);
+
+/* Filtro de categorias */
+const enlaces = document.querySelectorAll(`.nav-link`);
+function filtrarCategoria(categoria) {
+  if (categoria === `Gaming`) {
+    const gaming = data.filter(producto => producto.categoria === `Gaming`);
+    let mapeando = gaming.map((producto) => {
+      `<div class="card col-sm-3 m-3" style="width: 18rem;">
+        <a href="#"><img src="${producto.href}" class="card-img-top img-fluid"
+          style="height: 200px;object-fit-cover;" alt="${producto.descripcion}"></a>
+        <div class="card-body">
+          <h5 class="card-title text-secondary">${producto.descripcion}</h5>
+          <p class="card-text text-decoration-underline">Categoría: ${producto.categoria}</p>
+          <p class="card-text text-danger">Precio: ${producto.precio}</p>
+          <a href="./productos/producto.html?prod=${producto.id}" class="btn btn-primary bg-secondary border-0">
+            Ver más
+          </a>
+        </div>
+      </div>`;
+    });
+  } else if (categoria === `Ultrabook`) {
+    const ultrabook = data.filter(producto => producto.categoria === `Ultrabook`);
+    let mapeando = ultrabook.map((producto) => {
+      `<div class="card col-sm-3 m-3" style="width: 18rem;">
+        <a href="#"><img src="${producto.href}" class="card-img-top img-fluid"
+          style="height: 200px;object-fit-cover;" alt="${producto.descripcion}"></a>
+        <div class="card-body">
+          <h5 class="card-title text-secondary">${producto.descripcion}</h5>
+          <p class="card-text text-decoration-underline">Categoría: ${producto.categoria}</p>
+          <p class="card-text text-danger">Precio: ${producto.precio}</p>
+          <a href="./productos/producto.html?prod=${producto.id}" class="btn btn-primary bg-secondary border-0">
+            Ver más
+          </a>
+        </div>
+      </div>`;
+    });
+  } else {
+    const business = data.filter(producto => producto.categoria === `Business`);
+    let mapeando = business.map((producto) => {
+      `<div class="card col-sm-3 m-3" style="width: 18rem;">
+        <a href="#"><img src="${producto.href}" class="card-img-top img-fluid"
+          style="height: 200px;object-fit-cover;" alt="${producto.descripcion}"></a>
+        <div class="card-body">
+          <h5 class="card-title text-secondary">${producto.descripcion}</h5>
+          <p class="card-text text-decoration-underline">Categoría: ${producto.categoria}</p>
+          <p class="card-text text-danger">Precio: ${producto.precio}</p>
+          <a href="./productos/producto.html?prod=${producto.id}" class="btn btn-primary bg-secondary border-0">
+            Ver más
+          </a>
+        </div>
+      </div>`;
+    } )
+    }
+};

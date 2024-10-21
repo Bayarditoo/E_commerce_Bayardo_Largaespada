@@ -10,11 +10,16 @@
 <body>
     <header>
         <h1>Practica</h1>
-        <button onclick="agregElements()">Agregar elementos</button>
+        <button>Agregar elementos</button>
     </header>
     <main></main>
     <footer></footer>
-    <script></script>
+    <script>
+        const boton = document.querySelector(`button`);
+        boton.addEventListener(`click`, () => {
+            console.log(`Botón presionado`);
+        });
+    </script>
     <script src="practica.js"></script>
 </body>
 
