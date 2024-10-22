@@ -131,3 +131,13 @@ document.addEventListener("DOMContentLoaded", () => {
   dataCards(data);
 });
 buscarProducto();
+
+/* Filtrar por categoría */
+function filterCategory(categoria) {
+  if (categoria === "Todo") {
+    dataCards(data);
+  } else {
+    const filteredData = data.filter((item) => item.categoria === categoria);
+    dataCards(filteredData);
+  }
+}
