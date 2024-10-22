@@ -117,4 +117,4 @@ if (productoEncontrado) {
   imagen.src = productoEncontrado.href;
 } else {
   console.error("Producto no encontrado");
-};
+}
