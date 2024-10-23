@@ -130,7 +130,6 @@ document.querySelector("#home").addEventListener("click", regresarHome);
 document.addEventListener("DOMContentLoaded", () => {
   dataCards(data);
 });
-buscarProducto();
 
 /* Filtrar por categoría */
 function filterCategory(categoria) {
