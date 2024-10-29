@@ -5,7 +5,7 @@ const menu = [
   },
   {
     texto: "Pagina principal",
-    href: "/E-Commerce-Bayardo-Largaespada/index.html",
+    href: "/index.html",
   },
   { texto: "Contactame", href: "/" },
 ];
@@ -13,7 +13,7 @@ const menu = [
 let menuHtml = [];
 for (const nav of menu) {
   menuHtml.push(
-    `<a class="nav-link p-2 text-secondary" href="${nav.href}">${nav.texto}</a>;`
+    `<a class="nav-link p-2 text-secondary flex-wrap" href="${nav.href}">${nav.texto}</a>`
   );
 }
 document.querySelector("header").innerHTML = menuHtml.join("");
@@ -167,3 +167,20 @@ console.log(Object.keys(objectKeys));*/
 };
 const arrayValues = Object.values(objectValues);
 console.log(arrayValues);*/
+
+// Login.js
+
+const navRight = document.querySelector("#navRight");
+
+
+if (navRight) {
+  navRight.innerHTML = `${localStorage.getItem("email")
+    ? `<li>Hola, ${localStorage.getItem("email")}</li>
+          <li onclick="logout()"><button class="btn btn-primary rounded-pill">Cerrar sesión</button></li>`
+    : `<li><a href="login.html"><button class="btn btn-primary rounded-pill">Iniciar sesión</button></a></li>`}`;
+}
+
+function logout() {
+  localStorage.clear();
+  location.href = "index.html";
+};

@@ -1,4 +1,4 @@
-const titulo = document.querySelector("h1");
+const titulo = document.querySelector(`h1`);
 titulo.innerText = "Productos";
 const data = [
   {
@@ -139,4 +139,4 @@ function filterCategory(categoria) {
     const filteredData = data.filter((item) => item.categoria === categoria);
     dataCards(filteredData);
   }
-}
+};
