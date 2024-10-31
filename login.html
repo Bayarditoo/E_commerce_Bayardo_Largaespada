@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+<script>
+    // Verificación inicial de autenticación
+    const autenticado = () => {
+        if (localStorage.getItem("email")) {
+            location.href = "./index.html"; // Redirige si ya está logueado
+        }
+    };
+    autenticado(); // Se ejecuta para redirigir si ya está autenticado
+</script>
 <html lang="es">
 <head>
     <meta charset="UTF-8" />
@@ -28,17 +37,6 @@
         <button type="submit" class="btn btn-primary">Submit</button>
         <p id="formLoginMessage" class="poppings-light"></p>
     </form>
-
-    <script>
-        // Verificación inicial de autenticación
-        const autenticado = () => {
-            if (localStorage.getItem("email")) {
-                location.href = "./index.html"; // Redirige si ya está logueado
-            }
-        };
-        autenticado(); // Se ejecuta para redirigir si ya está autenticado
-    </script>
-
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const userLogin = { email: "bayardo@gmail.com", password: "1234" };
