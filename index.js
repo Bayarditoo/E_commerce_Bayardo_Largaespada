@@ -110,7 +110,7 @@ function dataCards(data) {
           <p class="card-text text-decoration-underline">Categoría: ${producto.categoria}</p>
           <p class="card-text text-danger">Precio: ${producto.precio}</p>
           <p class="card-text text-primary">Stock: ${producto.stock}</p> <! Agregado el stock -->
-          <a href="./productos/producto.html?prod=${producto.id}" class="btn btn-primary bg-secondary border-0">
+          <a href="producto.html?prod=${producto.id}" class="btn btn-primary bg-secondary border-0">
             Ver más
           </a>
         </div>

@@ -13,7 +13,7 @@ const menu = [
 let menuHtml = [];
 for (const nav of menu) {
   menuHtml.push(
-    `<a class="nav-link p-2 text-secondary flex-wrap" href="${nav.href}">${nav.texto}</a>`
+    `<a class="nav-link p-2 text-white flex-wrap" href="${nav.href}">${nav.texto}</a>`
   );
 }
 document.querySelector("header").innerHTML = menuHtml.join("");
