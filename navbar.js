@@ -169,18 +169,25 @@ const arrayValues = Object.values(objectValues);
 console.log(arrayValues);*/
 
 // Login.js
+//------LOGIN
+document.addEventListener("DOMContentLoaded", () => {
+  const navRight = document.querySelector("#navRight");
 
-const navRight = document.querySelector("#navRight");
-
-
-if (navRight) {
-  navRight.innerHTML = `${localStorage.getItem("email")
-    ? `<li>Hola, ${localStorage.getItem("email")}</li>
-          <li onclick="logout()"><button class="btn btn-primary rounded-pill">Cerrar sesión</button></li>`
-    : `<li><a href="login.html"><button class="btn btn-primary rounded-pill">Iniciar sesión</button></a></li>`}`;
-}
+  if (navRight) {
+    navRight.innerHTML = localStorage.getItem("email")
+      ? `<li class="text-dark">Hola, ${localStorage.getItem("email")}</li>
+        <li onclick="logout()">
+            <button class="btn btn-primary rounded-pill">Cerrar sesión</button>
+        </li>`
+      : `<li>
+            <a href="login.html">
+                <button class="btn btn-primary rounded-pill">Iniciar sesión</button>
+            </a>
+        </li>`;
+  }
+});
 
 function logout() {
-  localStorage.clear();
+  localStorage.removeItem("email");
   location.href = "index.html";
-};
+}

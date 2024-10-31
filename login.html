@@ -1,11 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-<script>
-    if (localStorage.getItem("email")) {
-        location.href = "index.html"
-    }
-</script>
-
+<html lang="es">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,8 +15,8 @@
     <title>Eccomerce Login</title>
 </head>
 
-<body id="Login">
-    <form>
+<body id="login">
+    <form class="loginForm">
         <div class="mb-3">
             <label class="form-label">Email address</label>
             <input type="email" class="form-control" name="email" />
@@ -34,22 +28,42 @@
         <button type="submit" class="btn btn-primary">Submit</button>
         <p id="formLoginMessage" class="poppings-light"></p>
     </form>
+
     <script>
-        const userLogin = { email: "bayardo@gmail.com", password: "1234" }
-        const message = document.querySelector("#formLoginMessage")
-
-        let form = document.querySelector("form");
-        form.addEventListener('submit', (e) => {
-            e.preventDefault()
-            if (userLogin.email === form.elements.email.value && userLogin.password === form.elements.password.value) {
-                localStorage.setItem("email", form.elements.email.value)
-                location.href = "./index.html"
-                message.innerText = ""
-            } else {
-                message.innerText = "Pone los datos bien bruto😡."
+        // Verificación inicial de autenticación
+        const autenticado = () => {
+            if (localStorage.getItem("email")) {
+                location.href = "./index.html"; // Redirige si ya está logueado
             }
-        })
+        };
+        autenticado(); // Se ejecuta para redirigir si ya está autenticado
+    </script>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const userLogin = { email: "bayardo@gmail.com", password: "1234" };
+            const message = document.querySelector("#formLoginMessage");
+            const form = document.querySelector(".loginForm"); // Cambiado a ".loginForm" (por clase)
+
+            if (form) {
+                form.addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    const emailInput = form.elements.email.value;
+                    const passwordInput = form.elements.password.value;
+
+                    if (
+                        emailInput === userLogin.email &&
+                        passwordInput === userLogin.password
+                    ) {
+                        localStorage.setItem("email", emailInput);
+                        location.href = "./index.html"; // Redirige al index
+                        if (message) message.innerText = "";
+                    } else {
+                        if (message) message.innerText = "Pone los datos bien bruto 🤬.";
+                    }
+                });
+            }
+        });
     </script>
 </body>
 

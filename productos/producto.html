@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
+  <script>
+    if (localStorage.getItem("email")) {
+        location.href = "index.html"
+    }
+</script>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,10 +21,11 @@
     <main class="bg-dark">
       <h4 class="text-warning text-center pt-3"></h4>
       <h5 class="text-white"></h5>
-      <p class="text-danger text-decoration-underline">Shit</p>
+      <p class="text-danger text-decoration-underline">Precio</p>
+      <p class="text-info" id="stock">Stock</p>
       <img src="" alt="" />
     </main>
-    <footer></footer>
+    <footer class="bg-dark"></footer>
     <script src="producto.js"></script>
     <script src="/navbar.js"></script>
     <script
