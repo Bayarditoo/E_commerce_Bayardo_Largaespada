@@ -1,11 +1,11 @@
 const menu = [
   {
     texto: "Productos",
-    href: "/E-Commerce-Bayardo-Largaespada/productos/producto.html",
+    href: "producto.html",
   },
   {
     texto: "Pagina principal",
-    href: "/index.html",
+    href: "index.html",
   },
   { texto: "Contactame", href: "/" },
 ];
