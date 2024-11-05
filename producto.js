@@ -121,9 +121,9 @@ function mapearProducto() {
                 localStorage.getItem("email")
                   ? `
                     <div class="input-group mb-3">
-                      <button class="btn btn-danger" type="button" onclick="increaseItem()">+</button>
-                      <input id="counter" type="number" class="form-control text-center" value="1" min="1" max="${producto.stock}">
                       <button class="btn btn-danger" type="button" onclick="decreaseItem()">-</button>
+                      <input id="counter" type="number" class="form-control text-center" value="1" min="1" max="${producto.stock}">
+                      <button class="btn btn-danger" type="button" onclick="increaseItem()">+</button>
                     </div>
                     <a href="#" class="btn btn-primary w-100" onclick="addItems()">Comprar</a>
                   `
