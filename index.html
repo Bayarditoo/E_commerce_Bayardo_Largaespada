@@ -10,11 +10,17 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-  <header class="d-flex justify-content-center bg-dark">
-    <nav id="navLeft" class="d-flex"></nav>
-    <ul id="navRight" class="d-flex list-unstyled"></ul>
+  <header class="d-flex  place-items-center justify-content-around bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <!-- Menú de navegación izquierda -->
+        <div id="navLeft" class="navbar-nav me-auto"></div>
+
+        <!-- Saludo y botón de inicio/cierre de sesión -->
+        <div id="navRight" class="navbar-nav"></div>
+      </div>
+    </nav>
   </header>
-  <ul id="navRight"></ul>
   <div class="categorias d-flex justify-content-center flex-wrap bg-dark">
     <div class="container">
       <div class="row justify-content-around">
@@ -33,7 +39,7 @@
       </div>
     </div>
   </div>
-  <form class="d-flex justify-content-around w-100 bg-dark">
+  <form class="d-flex justify-content-around bg-dark">
     <input type="text" id="searchInput" placeholder="Buscar productos" class="form-control me-2" />
     <button type="button" id="searchButton" class="btn btn-primary mx-2" onclick="buscarProducto()">Buscar</button>
     <button id="home" class="btn btn-primary mx-2" onclick="regresarHome()">X</button>

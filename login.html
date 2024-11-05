@@ -54,6 +54,7 @@
                         passwordInput === userLogin.password
                     ) {
                         localStorage.setItem("email", emailInput);
+                        localStorage.setItem("cart", JSON.stringify([]));
                         location.href = "./index.html"; // Redirige al index
                         if (message) message.innerText = "";
                     } else {

@@ -3,6 +3,17 @@
     margin: 0;
     padding: 0;
 }
+/* Eliminar margen en el body, header, y main */
+body, header, main {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Opcional: remover cualquier margen extra en header y main */
+  header, main {
+    margin-bottom: 0;
+  }
+  
 footer {
     padding: 1px;
 };
