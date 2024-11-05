@@ -1,11 +1,3 @@
-let tituloProducto = document.querySelector("h5");
-let textoProducto = document.querySelector("h4");
-let textoPrecio = document.querySelector("p");
-let imagen = document.querySelector("img");
-let stockProducto = document.querySelector("#stock");
-
-let id = window.location.search.split("=").at(-1);
-
 const data = [
   {
     id: 1,
@@ -104,31 +96,47 @@ const data = [
     stock: 7,
   },
 ];
-class Producto {
-  constructor(titulo, detalle, precio, stock, imagen) {
-    this.titulo = titulo;
-    this.detalle = detalle;
-    this.precio = precio;
-    this.stock = stock;
-    this.imagen = imagen;
-  }
-}
-const idProducto = window.location.search.split("=").at(-1);
-const productoEncontrado = data.find(
-  (producto) => producto.id === parseInt(idProducto)
-);
-if (productoEncontrado) {
-  const producto = new Producto(
-    productoEncontrado.descripcion,
-    productoEncontrado.categoria,
-    `PRECIO: ${productoEncontrado.precio}`,
-    `STOCK: ${productoEncontrado.stock}`
+function mapearProducto() {
+  const id = new URLSearchParams(window.location.search).get("prod");
+  const randomProduct = data.filter((producto) => producto.id == id);
+
+  const seccionProductos = document.getElementById("product-details");
+  const producto = randomProduct.map(
+    (producto) => `<div class="container pt-4 col-lg-6 col-md-8 mb-4"> 
+  <div class="card d-flex flex-row" style="width: 100%; height: 400px;">
+    <img 
+      src="${producto.href}" 
+      class="card-img-left bg-dark" 
+      alt="Producto" 
+      style="max-width: 400px; object-fit: contain; max-height: 400px;"
+    >
+    <div class="card-body bg-light">
+      <h5 class="card-title">${producto.descripcion}</h5>
+      <p class="card-text">Categoría: ${producto.categoria}</p>
+      <p class="card-text">Precio: ${producto.precio}</p>
+      <p class="card-text">Disponibles: ${producto.stock}</p>
+      <div class="p-4">
+        ${
+          localStorage.getItem("email")
+            ? `
+            <div class="input-group mb-3">
+              <div class="d-flex flex-row">
+                <button class="btn btn-danger" type="button" onclick="decrementarOrden()">-</button>   
+                <input type="number" class="form-control" value="1" min="1" max="${producto.stock}">
+                <button class="btn btn-danger" type="button" onclick="incrementarOrden()">+</button>
+              </div>
+            </div>
+            <a href="#" class="btn btn-primary col-12" onclick="añadirCarrito()">Comprar</a>`
+            : `<a href="login.html" class="btn btn-dark">Iniciar sesión para comprar</a>`
+        }
+      </div>
+    </div>
+  </div> 
+</div>
+`
   );
-  tituloProducto.innerText = producto.titulo;
-  textoProducto.innerText = producto.detalle;
-  textoPrecio.innerText = producto.precio;
-  imagen.src = productoEncontrado.href;
-  stockProducto.innerText = producto.stock;
-} else {
-  console.error("Producto no encontrado");
+
+  seccionProductos.innerHTML = producto.join("").replaceAll(",", "");
 }
+
+mapearProducto();

@@ -1,23 +1,48 @@
 const menu = [
-  {
-    texto: "Productos",
-    href: "producto.html",
-  },
-  {
-    texto: "Pagina principal",
-    href: "index.html",
-  },
-  { texto: "Contactame", href: "/" },
+  { texto: "Productos", href: "producto.html" },
+  { texto: "Página principal", href: "index.html" },
+  { texto: "Contáctame", href: "/" },
 ];
 
+// Generar HTML para el menú de navegación izquierda
 let menuHtml = [];
 for (const nav of menu) {
   menuHtml.push(
     `<a class="nav-link p-2 text-white flex-wrap" href="${nav.href}">${nav.texto}</a>`
   );
 }
-document.querySelector("header").innerHTML = menuHtml.join("");
 
+// Añadir el menú al #navLeft usando insertAdjacentHTML
+document.addEventListener("DOMContentLoaded", () => {
+  // Asegurarse de que el contenedor #navLeft existe
+  const navLeft = document.querySelector("#navLeft");
+  if (navLeft) {
+    navLeft.insertAdjacentHTML("beforeend", menuHtml.join(""));
+  }
+
+  // Agregar saludo y botón de logout en #navRight
+  const navRight = document.querySelector("#navRight");
+  if (navRight) {
+    navRight.innerHTML = localStorage.getItem("email")
+      ? `<li class="nav-item text-dark px-2">Hola, ${localStorage.getItem("email")}</li>
+         <li class="nav-item" onclick="logout()">
+             <button class="btn btn-primary rounded-pill">Cerrar sesión</button>
+         </li>`
+      : `<li class="nav-item">
+             <a href="login.html">
+                 <button class="btn btn-primary rounded-pill">Iniciar sesión</button>
+             </a>
+         </li>`;
+  }
+});
+
+// Función de logout
+function logout() {
+  localStorage.removeItem("email");
+  location.href = "index.html";
+}
+
+document.querySelector("header").innerHTML = menuHtml.join("");
 /* Metodo .Join() */
 /*let billeteColchon = [1,2,3,4,5];
 let arrJoin = billeteColchon.join(".");
@@ -168,26 +193,3 @@ console.log(Object.keys(objectKeys));*/
 const arrayValues = Object.values(objectValues);
 console.log(arrayValues);*/
 
-// Login.js
-//------LOGIN
-document.addEventListener("DOMContentLoaded", () => {
-  const navRight = document.querySelector("#navRight");
-
-  if (navRight) {
-    navRight.innerHTML = localStorage.getItem("email")
-      ? `<li class="text-dark">Hola, ${localStorage.getItem("email")}</li>
-        <li onclick="logout()">
-            <button class="btn btn-primary rounded-pill">Cerrar sesión</button>
-        </li>`
-      : `<li>
-            <a href="login.html">
-                <button class="btn btn-primary rounded-pill">Iniciar sesión</button>
-            </a>
-        </li>`;
-  }
-});
-
-function logout() {
-  localStorage.removeItem("email");
-  location.href = "index.html";
-}

@@ -46,8 +46,8 @@
             if (form) {
                 form.addEventListener("submit", (e) => {
                     e.preventDefault();
-                    const emailInput = form.elements.email.value;
-                    const passwordInput = form.elements.password.value;
+                    const emailInput = e.target.elements.email.value;
+                    const passwordInput = e.target.elements.password.value;
 
                     if (
                         emailInput === userLogin.email &&
