@@ -55,6 +55,7 @@
                     ) {
                         localStorage.setItem("email", emailInput);
                         localStorage.setItem("cart", JSON.stringify([]));
+                        localStorage.setItem("quantity", 0);
                         location.href = "./index.html"; // Redirige al index
                         if (message) message.innerText = "";
                     } else {

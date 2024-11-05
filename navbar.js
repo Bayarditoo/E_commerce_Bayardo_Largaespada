@@ -25,11 +25,18 @@ document.addEventListener("DOMContentLoaded", () => {
   if (navRight) {
     navRight.innerHTML = localStorage.getItem("email")
       ? `<li class="nav-item text-white pt-2 m-1">Hola, ${localStorage.getItem(
-        "email"
-      )}</li>
+          "email"
+        )}</li>
+               <span></span>
+<li>
+  <img height="25" src="https://raw.githubusercontent.com/julioavantt/guayerd_login/refs/heads/main/cart.png" alt="Comprar" />
+  <b class="text-white">${localStorage.getItem("quantity")}</b>
+</li>
+<span></span>
          <li class="nav-item">
              <button class="btn btn-primary rounded-pill p-2" onclick="logout()">Cerrar sesión</button>
-         </li>`
+         </li>
+`
       : `<li class="nav-item">
              <a href="login.html">
                  <button class="btn btn-primary rounded-pill">Iniciar sesión</button>

@@ -102,36 +102,36 @@ function mapearProducto() {
 
   const seccionProductos = document.getElementById("product-details");
   const producto = randomProduct.map(
-    (producto) => `
+      (producto) => `
       <div class="container pt-4 col-12 col-md-10 col-lg-8 mb-4"> 
-        <div class="card d-flex flex-row" style="width: 100%; max-width: 800px; height: auto;">
-          <img 
-            src="${producto.href}" 
-            class="card-img-left bg-secondary" 
-            alt="Producto" 
-            style="width: 50%; object-fit: cover; max-height: 400px;"
-          >
-          <div class="card-body bg-light">
-            <h5 class="card-title">${producto.descripcion}</h5>
-            <p class="card-text">Categoría: ${producto.categoria}</p>
-            <p class="card-text">Precio: ${producto.precio}</p>
-            <p class="card-text">Disponibles: ${producto.stock}</p>
-            <div class="p-4">
-              ${
-                localStorage.getItem("email")
-                  ? `
-                    <div class="input-group mb-3">
-                      <button class="btn btn-danger" type="button" onclick="decreaseItem()">-</button>
-                      <input id="counter" type="number" class="form-control text-center" value="1" min="1" max="${producto.stock}">
-                      <button class="btn btn-danger" type="button" onclick="increaseItem()">+</button>
-                    </div>
-                    <a href="#" class="btn btn-primary w-100" onclick="addItems()">Comprar</a>
-                  `
-                  : `<a href="login.html" class="btn btn-dark w-100">Iniciar sesión para comprar</a>`
-              }
-            </div>
+          <div class="card d-flex flex-row" style="width: 100%; max-width: 800px; height: auto;">
+              <img 
+                  src="${producto.href}" 
+                  class="card-img-left bg-secondary" 
+                  alt="Producto" 
+                  style="width: 50%; object-fit: cover; max-height: 400px;"
+              >
+              <div class="card-body bg-light">
+                  <h5 class="card-title">${producto.descripcion}</h5>
+                  <p class="card-text">Categoría: ${producto.categoria}</p>
+                  <p class="card-text">Precio: ${producto.precio}</p>
+                  <p class="card-text">Disponibles: ${producto.stock}</p>
+                  <div class="p-4">
+                    ${
+                      localStorage.getItem("email")
+                        ? `
+                          <div class="input-group mb-3">
+                            <button class="btn btn-danger" type="button" onclick="decreaseItem()">-</button>
+                            <input id="counter" type="number" class="form-control text-center" value="1" min="1" max="${producto.stock}">
+                            <button class="btn btn-danger" type="button" onclick="increaseItem()">+</button>
+                          </div>
+                          <a href="#" class="btn btn-primary w-100" onclick="addItems()">Comprar</a>
+                        `
+                        : `<a href="login.html" class="btn btn-dark w-100">Iniciar sesión para comprar</a>`
+                    }
+                  </div>
+              </div>
           </div>
-        </div>
       </div>
     `
   );
@@ -142,22 +142,34 @@ mapearProducto();
 
 // Función de incremento
 function increaseItem() {
-    const counter = document.querySelector('#counter');
-    counter.value = Math.min(Number(counter.value) + 1, counter.max);
+  const counter = document.querySelector('#counter');
+  counter.value = Math.min(Number(counter.value) + 1, counter.max);
 }
 
 // Función de decremento
 function decreaseItem() {
-    const counter = document.querySelector('#counter');
-    counter.value = Math.max(Number(counter.value) - 1, counter.min);
+  const counter = document.querySelector('#counter');
+  counter.value = Math.max(Number(counter.value) - 1, counter.min);
 }
 
 // Función de agregar al carrito
 function addItems() {
-    const counter = document.querySelector('#counter');
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const idProduct = Number(window.location.search.split("=")[1]);
+  const counter = document.querySelector('#counter');
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const idProduct = Number(window.location.search.split("=")[1]);
 
-    cart.push({ id: idProduct, quantity: Number(counter.value) });
-    localStorage.setItem("cart", JSON.stringify(cart));
+  cart.push({ id: idProduct, quantity: Number(counter.value) });
+  localStorage.setItem("cart", JSON.stringify(cart));
+  
+  let quantity = cart.reduce((acumulado, actual) => acumulado + actual.quantity, 0);
+  localStorage.setItem("quantity", quantity); // Aquí corregí el error
+  const quantityTag = document.querySelector("#quantity");
+
+  // Mostrar la cantidad en el elemento correspondiente
+  if (quantity > 0) {
+      quantityTag.innerText = quantity; // Muestra la cantidad total
+  } else {
+      quantityTag.innerText = ""; // Muestra vacío si no hay elementos
+  }
 }
+
