@@ -20,10 +20,11 @@
     />
     <style>
       #cart .card .me-4 {
-        width: 100%; /* Ajusta el ancho a 100% para que se adapte */
+        width: 100%;
+        max-width: 180px; /* Tamaño máximo en pantallas grandes */
         overflow: hidden;
         height: auto;
-        max-height: 120px; /* Max alto para prevenir distorsión */
+        max-height: 120px;
         display: flex;
         align-items: center;
         border-radius: 5px;
@@ -32,6 +33,16 @@
       #cart .card .me-4 img {
         width: 100%;
         height: auto;
+      }
+
+      /* Ajustes para pantallas grandes */
+      @media (min-width: 1200px) {
+        .container {
+          max-width: 1200px; /* Ancho máximo del contenedor */
+        }
+        .text-md-end {
+          text-align: right !important;
+        }
       }
 
       /* Ajustes específicos para pantallas pequeñas */
@@ -50,8 +61,8 @@
 
     <div class="container pt-4">
       <div class="row">
-        <div class="col-lg-8 col-12">
-          <!-- Carrito de compras -->
+        <!-- Carrito de compras -->
+        <div class="col-lg-8 col-12 order-2 order-lg-1">
           <div id="cards"></div>
 
           <div class="row my-4">
@@ -71,8 +82,8 @@
           </div>
         </div>
 
-        <div class="col-lg-4 col-12">
-          <!-- Resumen del pedido -->
+        <!-- Resumen del pedido -->
+        <div class="col-lg-4 col-12 order-1 order-lg-2">
           <div class="mt-5 mt-lg-0">
             <div class="card border shadow-none">
               <div class="card-header bg-transparent border-bottom py-3 px-4">
