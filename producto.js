@@ -102,7 +102,7 @@ function mapearProducto() {
 
   const seccionProductos = document.getElementById("product-details");
   const producto = randomProduct.map(
-      (producto) => `
+    (producto) => `
       <div class="container pt-4 col-12 col-md-10 col-lg-8 mb-4"> 
           <div class="card d-flex flex-row" style="width: 100%; max-width: 800px; height: auto;">
               <img 
@@ -125,7 +125,9 @@ function mapearProducto() {
                             <input id="counter" type="number" class="form-control text-center" value="1" min="1" max="${producto.stock}">
                             <button class="btn btn-danger" type="button" onclick="increaseItem()">+</button>
                           </div>
-                          <a href="#" class="btn btn-primary w-100" onclick="addItems()">Comprar</a>
+                          <a id="quantity" href="#" class="btn btn-primary w-100 text-align-center" onclick="addItems()"><span class="material-symbols-outlined">
+add_shopping_cart
+</span>Comprar</a>
                         `
                         : `<a href="login.html" class="btn btn-dark w-100">Iniciar sesión para comprar</a>`
                     }
@@ -142,34 +144,60 @@ mapearProducto();
 
 // Función de incremento
 function increaseItem() {
-  const counter = document.querySelector('#counter');
+  const counter = document.querySelector("#counter");
   counter.value = Math.min(Number(counter.value) + 1, counter.max);
 }
 
 // Función de decremento
 function decreaseItem() {
-  const counter = document.querySelector('#counter');
+  const counter = document.querySelector("#counter");
   counter.value = Math.max(Number(counter.value) - 1, counter.min);
 }
 
 // Función de agregar al carrito
 function addItems() {
-  const counter = document.querySelector('#counter');
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const idProduct = Number(window.location.search.split("=")[1]);
+  // Obtener el carrito desde localStorage o inicializarlo como un array vacío
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  cart.push({ id: idProduct, quantity: Number(counter.value) });
-  localStorage.setItem("cart", JSON.stringify(cart));
-  
-  let quantity = cart.reduce((acumulado, actual) => acumulado + actual.quantity, 0);
-  localStorage.setItem("quantity", quantity); // Aquí corregí el error
-  const quantityTag = document.querySelector("#quantity");
+  // Obtener el ID del producto desde la URL
+  const idProduct = Number(new URLSearchParams(window.location.search).get("prod"));
+  const product = data.find(item => item.id === idProduct);
 
-  // Mostrar la cantidad en el elemento correspondiente
-  if (quantity > 0) {
-      quantityTag.innerText = quantity; // Muestra la cantidad total
+  // Verificar si el producto ya está en el carrito
+  const existeIdEnCard = cart.some(item => item.product.id === idProduct);
+
+  if (existeIdEnCard) {
+      // Si el producto ya está en el carrito, actualizamos su cantidad
+      cart = cart.map(item => {
+          if (item.product.id === idProduct) {
+              return {
+                  ...item,
+                  quantity: item.quantity + Number(counter.value)
+              };
+          } else {
+              return item;
+          }
+      });
   } else {
-      quantityTag.innerText = ""; // Muestra vacío si no hay elementos
+      // Si el producto no está en el carrito, lo agregamos como un nuevo objeto
+      cart.push({ product: product, quantity: Number(counter.value), img: product.img });
   }
-}
 
+  // Reiniciar el valor del contador a 1
+  counter.value = "1";
+
+  // Guardar el carrito actualizado en localStorage
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  // Calcular la cantidad total de productos en el carrito
+  let quantity = cart.reduce((acumulado, actual) => acumulado + actual.quantity, 0);
+  localStorage.setItem("quantity", JSON.stringify(quantity));
+
+  // Actualizar la visualización de la cantidad en el carrito
+  const quantityTag = document.querySelector("#quantity");
+  quantityTag.innerText = quantity;
+
+  // Mostrar el carrito en la consola para verificar
+  console.log(cart);
+  localStorage.setItem("cart", JSON.stringify(cart));
+}

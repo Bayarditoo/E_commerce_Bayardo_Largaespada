@@ -55,8 +55,8 @@
                     ) {
                         localStorage.setItem("email", emailInput);
                         localStorage.setItem("cart", JSON.stringify([]));
-                        localStorage.setItem("quantity", 0);
-                        location.href = "./index.html"; // Redirige al index
+                        localStorage.setItem("quantity", "0");
+                        location.href = "index.html";
                         if (message) message.innerText = "";
                     } else {
                         if (message) message.innerText = "Pone los datos bien bruto 🤬.";
