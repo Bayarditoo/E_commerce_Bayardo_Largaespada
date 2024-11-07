@@ -1,31 +1,29 @@
 <!DOCTYPE html>
 <script>
-  // Verificación inicial de autenticación
   const autenticado = () => {
     if (!localStorage.getItem("email")) {
-      location.href = "./index.html"; // Redirige si ya está logueado
+      location.href = "./index.html";
     }
   };
-  autenticado(); // Se ejecuta para redirigir si ya está autenticado
+  autenticado();
 </script>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Laptops</title>
-    <link rel="icon" type="image/png" href="" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="" />
     <style>
       #cart .card .me-4 {
-        width: 180px;
+        width: 100%; /* Ajusta el ancho a 100% para que se adapte */
         overflow: hidden;
-        height: 120px;
+        height: auto;
+        max-height: 120px; /* Max alto para prevenir distorsión */
         display: flex;
         align-items: center;
         border-radius: 5px;
@@ -33,6 +31,17 @@
 
       #cart .card .me-4 img {
         width: 100%;
+        height: auto;
+      }
+
+      /* Ajustes específicos para pantallas pequeñas */
+      @media (max-width: 576px) {
+        #cart .card-body {
+          text-align: center;
+        }
+        .text-sm-end {
+          text-align: center !important;
+        }
       }
     </style>
   </head>
@@ -41,24 +50,20 @@
 
     <div class="container pt-4">
       <div class="row">
-        <div class="col-xl-8">
+        <div class="col-lg-8 col-12">
           <!-- Carrito de compras -->
           <div id="cards"></div>
 
           <div class="row my-4">
-            <div class="col-sm-6">
-              <a href="index.html" class="btn btn-primary">Seguir comprando</a>
+            <div class="col-12 col-md-6 mb-2">
+              <a href="index.html" class="btn btn-primary w-100">Seguir comprando</a>
             </div>
-            <div class="col-sm-6">
-              <div class="text-sm-end mt-2 mt-sm-0">
-                <button id="btn-checkout" class="btn btn-success me-2">
+            <div class="col-12 col-md-6">
+              <div class="text-md-end">
+                <button id="btn-checkout" class="btn btn-success me-2 w-100 mb-2">
                   Checkout
                 </button>
-                <button
-                  id="btn-clear-cart"
-                  class="btn btn-danger"
-                  onclick="cleanCart()"
-                >
+                <button id="btn-clear-cart" class="btn btn-danger w-100" onclick="cleanCart()">
                   Limpiar Carrito
                 </button>
               </div>
@@ -66,7 +71,7 @@
           </div>
         </div>
 
-        <div class="col-xl-4">
+        <div class="col-lg-4 col-12">
           <!-- Resumen del pedido -->
           <div class="mt-5 mt-lg-0">
             <div class="card border shadow-none">
