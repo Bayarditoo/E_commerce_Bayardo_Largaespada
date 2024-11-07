@@ -125,9 +125,7 @@ function mapearProducto() {
                             <input id="counter" type="number" class="form-control text-center" value="1" min="1" max="${producto.stock}">
                             <button class="btn btn-danger" type="button" onclick="increaseItem()">+</button>
                           </div>
-                          <a id="quantity" href="#" class="btn btn-primary w-100 text-align-center" onclick="addItems()"><span class="material-symbols-outlined">
-add_shopping_cart
-</span>Comprar</a>
+<a id="quantity" href="#" class="btn btn-primary w-100 text-align-center" onclick="addItems()"><span class="material-symbols-outlined">add_shopping_cart</span>Comprar</a>
                         `
                         : `<a href="login.html" class="btn btn-dark w-100">Iniciar sesión para comprar</a>`
                     }
@@ -157,26 +155,32 @@ function decreaseItem() {
 // Función de agregar al carrito
 function addItems() {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const idProduct = Number(new URLSearchParams(window.location.search).get("prod"));
-  const product = data.find(item => item.id === idProduct);
+  const idProduct = Number(
+    new URLSearchParams(window.location.search).get("prod")
+  );
+  const product = data.find((item) => item.id === idProduct);
 
-  const existeIdEnCard = cart.some(item => item.product.id === idProduct);
+  const existeIdEnCard = cart.some((item) => item.product.id === idProduct);
 
   if (existeIdEnCard) {
-      cart = cart.map(item => {
-          if (item.product.id === idProduct) {
-              // Aumenta la cantidad usando el valor actual del contador
-              return {
-                  ...item,
-                  quantity: item.quantity + Number(counter.value)
-              };
-          } else {
-              return item;
-          }
-      });
+    cart = cart.map((item) => {
+      if (item.product.id === idProduct) {
+        // Aumenta la cantidad usando el valor actual del contador
+        return {
+          ...item,
+          quantity: item.quantity + Number(counter.value),
+        };
+      } else {
+        return item;
+      }
+    });
   } else {
-      // Agrega el producto al carrito con la cantidad seleccionada
-      cart.push({ product: product, quantity: Number(counter.value), img: product.href });
+    // Agrega el producto al carrito con la cantidad seleccionada
+    cart.push({
+      product: product,
+      quantity: Number(counter.value),
+      img: product.href,
+    });
   }
 
   // Reinicia el valor del contador a 1
@@ -186,7 +190,10 @@ function addItems() {
   localStorage.setItem("cart", JSON.stringify(cart));
 
   // Calcula la cantidad total de productos
-  let totalQuantity = cart.reduce((acumulado, actual) => acumulado + actual.quantity, 0);
+  let totalQuantity = cart.reduce(
+    (acumulado, actual) => acumulado + actual.quantity,
+    0
+  );
   localStorage.setItem("quantity", JSON.stringify(totalQuantity));
 
   // Actualiza el texto del botón del carrito

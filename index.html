@@ -7,53 +7,62 @@
   <title>Eccomerce principal</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
-    <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
-  <header class="d-flex  place-items-center justify-content-around bg-dark">
-    <header class="bg-dark d-flex justify-content-between align-items-center p-3">
-      <div id="navLeft" class="d-flex gap-3">
-          <!-- Los enlaces del menú generados por navbar.js se insertarán aquí -->
-      </div>
-      <div id="navRight" class="d-flex align-items-center gap-3">
-          <!-- Elementos como saludo e icono de carrito generados por navbar.js se insertarán aquí -->
-      </div>
+  <!-- Navbar -->
+  <header class="bg-dark d-flex flex-column flex-md-row justify-content-between align-items-center p-3">
+    <div id="navLeft" class="d-flex gap-3">
+      <!-- Los enlaces del menú generados por navbar.js se insertarán aquí -->
+    </div>
+    <div id="navRight" class="d-flex align-items-center gap-3 mt-3 mt-md-0">
+      <!-- Elementos como saludo e icono de carrito generados por navbar.js se insertarán aquí -->
+    </div>
   </header>
-  </header>
-  <div class="categorias d-flex justify-content-center flex-wrap bg-dark">
+
+  <!-- Categorías -->
+  <div class="categorias d-flex justify-content-center flex-wrap bg-dark py-3">
     <div class="container">
-      <div class="row justify-content-around">
-        <div class="col-12 col-md-6 col-lg-4">
-          <button class="btn btn-block btn-primary w-100 mb-2" onclick="filterCategory('Todo')">Todo</button>
+      <div class="row justify-content-center">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <button class="btn btn-primary w-100 mb-2" onclick="filterCategory('Todo')">Todo</button>
         </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <button class="btn btn-block btn-primary w-100 mb-2" onclick="filterCategory('Gaming')">Gaming</button>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <button class="btn btn-primary w-100 mb-2" onclick="filterCategory('Gaming')">Gaming</button>
         </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <button class="btn btn-block btn-primary w-100 mb-2" onclick="filterCategory('Ultrabook')">Ultrabook</button>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <button class="btn btn-primary w-100 mb-2" onclick="filterCategory('Ultrabook')">Ultrabook</button>
         </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <button class="btn btn-block btn-primary w-100 mb-2" onclick="filterCategory('Business')">Business</button>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <button class="btn btn-primary w-100 mb-2" onclick="filterCategory('Business')">Business</button>
         </div>
       </div>
     </div>
   </div>
-  <form class="d-flex justify-content-around bg-dark">
-    <input type="text" id="searchInput" placeholder="Buscar productos" class="form-control me-2" />
-    <button type="button" id="searchButton" class="btn btn-primary mx-2" onclick="buscarProducto()">Buscar</button>
+
+  <!-- Formulario de búsqueda -->
+  <form class="d-flex flex-column flex-md-row justify-content-around align-items-center bg-dark py-3">
+    <input type="text" id="searchInput" placeholder="Buscar productos" class="form-control me-md-2 mb-2 mb-md-0" />
+    <button type="button" id="searchButton" class="btn btn-primary mx-2 mb-2 mb-md-0" onclick="buscarProducto()">Buscar</button>
     <button id="home" class="btn btn-primary mx-2" onclick="regresarHome()">X</button>
   </form>
-  </div>
-  <main class="main-container d-flex flex-wrap justify-content-center bg-dark">
-    <h1></h1>
+
+  <!-- Contenido principal -->
+  <main class="main-container d-flex flex-wrap justify-content-center bg-dark py-4">
+    <h1 class="text-center text-light">Bienvenido a la tienda</h1>
     <section class="section"></section>
   </main>
-  <footer class="bg-dark">
+
+  <!-- Footer -->
+  <footer class="bg-dark text-center py-3">
     <h6 class="text-primary">© 2024 Bayardo Largaespada</h6>
   </footer>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script src="index.js"></script>
   <script src="navbar.js"></script>
-  <script>
+</body>
+
+</html>
