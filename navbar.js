@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
                <span></span>
 <li>
   <a href="./cart.html"><img height="25" src="https://raw.githubusercontent.com/julioavantt/guayerd_login/refs/heads/main/cart.png" alt="Comprar" /></a>
-  <b id="" class="text-white">${localStorage.getItem("quantity")}</b>
+  <b id="quantity" class="text-white">${localStorage.getItem("quantity")}</b>
 </li>
 <span></span>
          <li class="nav-item">

@@ -19,7 +19,7 @@ function getCart(cards) {
                                 <div class="col-md-4">
                                     <div class="mt-3">
                                         <p class="text-muted mb-2">Precio</p>
-                                        <h5 class="mb-0 mt-2">$${parseFloat(card.product.precio.replace('$', ''))}</h5>
+                                        <h5 class="mb-0 mt-2">$${card.product.precio}</h5>
                                     </div>
                                 </div>
                                 <div class="col-md-5">
@@ -31,7 +31,7 @@ function getCart(cards) {
                                 <div class="col-md-3">
                                     <div class="mt-3">
                                         <p class="text-muted mb-2">Total</p>
-                                        <h5>$${(parseFloat(card.product.precio.replace('$', '')) * card.quantity).toFixed(2)}</h5>
+                                        <h5>${card.product.precio * card.quantity.toFixed(2)}</h5>
                                     </div>
                                 </div>
                                 <div class="col-md-2">
@@ -53,7 +53,7 @@ function getCart(cards) {
 // Función para calcular y mostrar el total del carrito
 function total(cards) {
     let totalAmount = cards.length > 0
-        ? cards.reduce((acc, item) => acc + parseFloat(item.product.precio.replace('$', '')) * item.quantity, 0)
+        ? cards.reduce((acc, item) => acc + (item.product.precio) * item.quantity, 0)
         : 0;
     cartTotal.innerText = "$" + totalAmount.toFixed(2);
 }
