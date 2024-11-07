@@ -1,14 +1,17 @@
 const menu = [
   { texto: "Productos", href: "producto.html" },
   { texto: "Página principal", href: "index.html" },
-  { texto: "Contáctame", href: "/" },
+  {
+    texto: "Contáctame",
+    href: "https://www.linkedin.com/in/bayardo-largaespada-73346a2a3/",
+  },
 ];
 
 // Generar HTML para el menú de navegación izquierda
 let menuHtml = [];
 for (const nav of menu) {
   menuHtml.push(
-    `<a class="nav-link p-3 text-white d-flex flex-wrap" href="${nav.href}">${nav.texto}</a>`
+    `<a class="nav-link p-3 text-secondary d-flex flex-wrap" href="${nav.href}">${nav.texto}</a>`
   );
 }
 
@@ -25,12 +28,12 @@ document.addEventListener("DOMContentLoaded", () => {
   if (navRight) {
     navRight.innerHTML = localStorage.getItem("email")
       ? `<li class="nav-item text-white pt-2 m-1">Hola, ${localStorage.getItem(
-          "email"
-        )}</li>
+        "email"
+      )}</li>
                <span></span>
 <li>
-  <img height="25" src="https://raw.githubusercontent.com/julioavantt/guayerd_login/refs/heads/main/cart.png" alt="Comprar" />
-  <b class="text-white">${localStorage.getItem("quantity")}</b>
+  <a href="./cart.html"><img height="25" src="https://raw.githubusercontent.com/julioavantt/guayerd_login/refs/heads/main/cart.png" alt="Comprar" /></a>
+  <b id="" class="text-white">${localStorage.getItem("quantity")}</b>
 </li>
 <span></span>
          <li class="nav-item">
@@ -50,7 +53,6 @@ function logout() {
   localStorage.removeItem("email");
   location.href = "index.html";
 }
-
 /* Metodo .Join() */
 /*let billeteColchon = [1,2,3,4,5];
 let arrJoin = billeteColchon.join(".");
@@ -123,53 +125,101 @@ console.log(happy);*/
 /*const num = [3, 4, 5];
 num.forEach((num) => console.log(num - 1));
 
-/* Metodo .filter() !!!!!, el metodo filter devuelve un nuevo array con los elementos que cumplen la condicion */
+/* 
+Metodo .filter() !!!!!, el metodo filter devuelve un nuevo array con los elementos que cumplen la condicion 
+*//*
 const estudiantes = [
   { name: `Bayardo`, calificacion: 5 },
   { name: `Elias`, calificacion: 6 },
   { name: `Benjamin`, calificacion: 8 },
 ];
+*/
+/* 
 const aprobaron = estudiantes.filter(
   (estudiante) => estudiante.calificacion >= 6
 );
-/*Metodo .find()!!!!!, el metodo find devuelve el primer elemento que cumple la condicion */
+*/
+
+/*
+Metodo .find()!!!!!, el metodo find devuelve el primer elemento que cumple la condicion 
+*/
+/*
 const pasaron = estudiantes.find((estudiante) => estudiante.calificacion > 5);
 console.log(aprobaron);
 console.log(pasaron);
-/*Metodo .every()!!!!!, el metodo every devuelve true si todos los elementos cumplen la condicion */
+*/
 
+/*
+Metodo .every()!!!!!, el metodo every devuelve true si todos los elementos cumplen la condicion 
+*/
+/*
 const every = estudiantes.every((estudiantes) => estudiantes.calificacion > 4);
 console.log(every);
+*/
 
-/* Metodo.reduce()!!!!!, el metodo reduce devuelve un valor que es la reduccion de todos los elementos en un solo valor */
+/* 
+Metodo.reduce()!!!!!, el metodo reduce devuelve un valor que es la reduccion de todos los elementos en un solo valor 
+*/
+/*
 const reduce = estudiantes.reduce(
   (acumulador, actual) => acumulador + actual.calificacion,
   0
 );
 console.log(reduce);
+*/
 
-/* Metodo .sort() el metodo sort devuelve un nuevo array ordenado */
+/* 
+Metodo .sort() el metodo sort devuelve un nuevo array ordenado 
+*/
+/*
 const sort = estudiantes.sort((a, b) => a.calificacion - b.calificacion);
 console.log(sort);
+*/
 
-/*Clase 16 */
+/* 
+Clase 16 
+*/
 
-/* .toUpperCase(): el metodo toUpperCase devuelve una copia del string en mayusculas */
+/* 
+.toUpperCase(): el metodo toUpperCase devuelve una copia del string en mayusculas 
+*/
+/*
 console.log("Hola".toUpperCase());
-/* .toLowerCase(): el metodo toLowerCase devuelve una copia del string en minusculas */
+*/
+
+/* 
+.toLowerCase(): el metodo toLowerCase devuelve una copia del string en minusculas 
+*/
+/*
 console.log("Hola".toLowerCase());
-/* .split: Crea un array usando un caracter separador a partir de un string.
-En este caso el separador es el espacio.*/
+*/
+
+/* 
+.split: Crea un array usando un caracter separador a partir de un string.
+En este caso el separador es el espacio.
+*/
+/*
 const urlSearch = `?prod=1`;
 const arrayFromUrl = urlSearch.split(`=`);
 console.log(arrayFromUrl[1]);
-/* .replaceAll(): Reemplaza todas las ocurrencias de un carácter (o patrón de caracteres)
-por otra sin afectar al string original.*/
+*/
+
+/* 
+.replaceAll(): Reemplaza todas las ocurrencias de un carácter (o patrón de caracteres)
+por otra sin afectar al string original.
+*/
+/*
 let gato = `goto`;
 console.log(gato.replaceAll(`o`, `a`));
-/* length: Devuelve la longitud del string.*/
+*/
+
+/* 
+length: Devuelve la longitud del string.
+*/
+/*
 let phrase = `Esto es una frase.`;
 console.log(phrase.length);
+*/
 
 /* Metodos number */
 

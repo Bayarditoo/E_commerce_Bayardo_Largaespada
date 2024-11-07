@@ -1,19 +1,11 @@
 <!DOCTYPE html>
-<script>
-    const autenticado = () => {
-        if (localStorage.getItem("email")) {
-            location.href = "./index.html"; // Redirige si ya está logueado
-        }
-    };
-    autenticado();
-</script>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Avantt Cars</title>
-    <link rel="icon" type="image/png" href="./assets/favicon.png" />
+    <title>Laptops</title>
+    <link rel="icon" type="image/png" href="" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <link rel="stylesheet" href="" />
@@ -34,7 +26,14 @@
 </head>
 
 <body id="cart">
-    <header></header>
+    <header class="bg-dark d-flex justify-content-between align-items-center p-3">
+        <div id="navLeft" class="d-flex gap-3">
+            <!-- Los enlaces del menú generados por navbar.js se insertarán aquí -->
+        </div>
+        <div id="navRight" class="d-flex align-items-center gap-3">
+            <!-- Elementos como saludo e icono de carrito generados por navbar.js se insertarán aquí -->
+        </div>
+    </header>
     <div class="container pt-4">
         <div class="row">
             <div class="col-xl-8">
@@ -111,7 +110,11 @@
             </div>
         </div>
     </div>
-    <script src="navbar.js"></script>
+    <script src="./navbar.js"></script>
+    <script src="./cart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
