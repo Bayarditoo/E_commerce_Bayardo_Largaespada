@@ -154,10 +154,6 @@ function filterCategory(categoria) {
 };
 dataCards(data);
 
-document.querySelector("main").innerHTML = `
-            <div class="spinner-border" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>`;
 const promise = new Promise((resolve, reject) => {
   setTimeout(() => {
     resolve("Si jala el código");
