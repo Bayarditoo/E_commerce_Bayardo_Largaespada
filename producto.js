@@ -105,10 +105,10 @@ function mapearProducto() {
     (producto) => `
       <div class="container pt-4 col-12 col-md-10 col-lg-8 mb-4"> 
           <div class="card d-flex flex-row" style="width: 100%; max-width: 800px; height: auto;">
-              <img 
-                  src="${producto.href}" 
-                  class="card-img-left bg-secondary" 
-                  alt="Producto" 
+              <img
+                  src="${producto.href}"
+                  class="card-img-left"
+                  alt="Producto"
                   style="width: 50%; object-fit: cover; max-height: 400px;"
               >
               <div class="card-body bg-light">

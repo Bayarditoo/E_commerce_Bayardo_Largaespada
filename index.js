@@ -1,5 +1,4 @@
-const titulo = document.querySelector(`h1`);
-titulo.innerText = "Productos";
+
 const data = [
   {
     id: 1,
@@ -119,8 +118,6 @@ function dataCards(data) {
   document.querySelector("main").innerHTML = prod.join("");
 }
 dataCards(data);
-
-
 function buscarProducto() {
   const input = document.querySelector("#searchInput").value.toLowerCase();
   const filteredData = data.filter((prod) =>
@@ -155,3 +152,20 @@ function filterCategory(categoria) {
     dataCards(filteredData);
   }
 };
+dataCards(data);
+
+document.querySelector("main").innerHTML = `
+            <div class="spinner-border" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>`;
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("Si jala el código");
+  }, 3000);
+});
+
+promise.then((data) => {
+  console.log(data);
+}).catch((error) => {
+  console.error("Hubo un error:", error);
+});
