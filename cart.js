@@ -1,7 +1,7 @@
 const cardsSection = document.querySelector("#cart #cards");
 const btnClearCart = document.querySelector("#btn-clear-cart"); // Botón para limpiar carrito
 const cartTotal = document.querySelector("#card-total"); // Elemento para mostrar el total
-const quantityTag = document.querySelector("#quantity"); // Elemento para mostrar cantidad total de items en el carrito
+const quantity = document.querySelector("#quantity"); // Elemento para mostrar cantidad total de items en el carrito
 
 // Función para mostrar los productos en el carrito
 function getCart(cards) {
@@ -69,21 +69,124 @@ function removeItem(id) {
     // Calcula la cantidad total de productos y actualiza en el localStorage y en el DOM
     let totalQuantity = newCards.reduce((acc, item) => acc + item.quantity, 0);
     localStorage.setItem("quantity", totalQuantity);
-    quantityTag.innerText = totalQuantity;
+    quantity.innerText = totalQuantity;
 }
 
 // Función para vaciar el carrito
 function cleanCart() {
-    localStorage.setItem("cart", JSON.stringify([])); // Vacía el carrito en localStorage
-    localStorage.setItem("quantity", "0"); // Reinicia la cantidad total de productos
+    localStorage.setItem("cart", JSON.stringify([]));
+    localStorage.setItem("quantity", "0");
+    Toastify({
+        text: "Carrito vaciado con éxito",
+        style: {
+          background: "red",
+        },
+        offset: {
+          y: 10
+        },
+    }).showToast();
+    getCart([]);
+    total([]);
 
-    getCart([]); // Actualiza la vista del carrito
-    total([]); // Actualiza el total
-
-    quantityTag.innerText = "0"; // Actualiza la cantidad mostrada a 0
+    quantity.innerText = "0"; // Actualiza la cantidad mostrada a 0
     btnClearCart.style.display = "none"; // Oculta el botón de limpiar carrito
 }
 
 // Llama a getCart y total para cargar el carrito inicial al abrir la página
 getCart(JSON.parse(localStorage.getItem("cart")) || []);
 total(JSON.parse(localStorage.getItem("cart")) || []);
+
+function checkOut() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const quantity = parseInt(localStorage.getItem("quantity")) || 0;
+
+    if (quantity === 0) {
+        // Validación si el carrito está vacío
+        Toastify({
+            text: "Error! Al parecer no tiene productos en el carrito...",
+            style: {
+                background: "red",
+            },
+            offset: {
+                y: 10,
+            },
+        }).showToast();
+        return;
+    }
+
+    Swal.fire({
+        text: "¿Estás seguro/a de querer realizar la compra?",
+        confirmButtonText: "Sí",
+        cancelButtonText: "No",
+        showCancelButton: true,
+        showCloseButton: true,
+        confirmButtonColor: "green",
+        cancelButtonColor: "red",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const user = localStorage.getItem("email");
+            if (!user) {
+                // Validar que el usuario exista en localStorage
+                Toastify({
+                    text: "Error! No se encontró un usuario válido.",
+                    style: {
+                        background: "red",
+                    },
+                    offset: {
+                        y: 10,
+                    },
+                }).showToast();
+                return;
+            }
+
+            const datos = {
+                user,
+                cart,
+                total: cart.reduce((acc, item) => acc + item.product.precio * item.quantity, 0),
+            };
+
+            // Enviar datos al servidor
+            fetch("https://673cc12496b8dcd5f3fb7635.mockapi.io/orders", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(datos),
+            })
+                .then((response) => {
+                    // Validar que la respuesta sea exitosa
+                    if (!response.ok) {
+                        throw new Error(`Error en el servidor: ${response.status} ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then((order) => {
+                    // Mostrar confirmación de la orden
+                    Toastify({
+                        text: `Gracias por su compra ${order.user}. Su orden es la número ${order.id}`,
+                        style: {
+                            background: "green",
+                        },
+                        offset: {
+                            y: 250,
+                        },
+                    }).showToast();
+
+                    cleanCart(); // Vaciar el carrito después de completar la compra
+                })
+                .catch((error) => {
+                    // Capturar errores de red o del servidor
+                    console.error("Error al procesar la solicitud:", error);
+                    Toastify({
+                        text: "Hubo un error al procesar su compra. Inténtelo más tarde.",
+                        style: {
+                            background: "red",
+                        },
+                        offset: {
+                            y: 250,
+                        },
+                    }).showToast();
+                });
+        }
+    });
+}

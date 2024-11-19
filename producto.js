@@ -165,7 +165,6 @@ function addItems() {
   if (existeIdEnCard) {
     cart = cart.map((item) => {
       if (item.product.id === idProduct) {
-        // Aumenta la cantidad usando el valor actual del contador
         return {
           ...item,
           quantity: item.quantity + Number(counter.value),
@@ -175,7 +174,6 @@ function addItems() {
       }
     });
   } else {
-    // Agrega el producto al carrito con la cantidad seleccionada
     cart.push({
       product: product,
       quantity: Number(counter.value),
@@ -183,22 +181,29 @@ function addItems() {
     });
   }
 
-  // Reinicia el valor del contador a 1
   counter.value = 1;
-
-  // Guarda el carrito actualizado en localStorage
   localStorage.setItem("cart", JSON.stringify(cart));
 
-  // Calcula la cantidad total de productos
   let totalQuantity = cart.reduce(
     (acumulado, actual) => acumulado + actual.quantity,
     0
   );
   localStorage.setItem("quantity", JSON.stringify(totalQuantity));
 
-  // Actualiza el texto del botón del carrito
   const quantityTag = document.querySelector("#quantity");
   if (quantityTag) quantityTag.innerText = totalQuantity;
 
+  // Mostrar notificación
+  Toastify({
+    text: `"${product.descripcion}" agregado al carrito.`,
+    style: {
+      background: "green",
+    },
+    offset: {
+      y: 50,
+    },
+  }).showToast();
+
   console.log(cart);
 }
+
