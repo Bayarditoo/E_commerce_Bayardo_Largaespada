@@ -1,5 +1,4 @@
 const menu = [
-  { texto: "Productos", href: "producto.html" },
   { texto: "Página principal", href: "index.html" },
   {
     texto: "Contáctame",
