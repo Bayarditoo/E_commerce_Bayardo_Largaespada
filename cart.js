@@ -175,7 +175,6 @@ function checkOut() {
                 })
                 .catch((error) => {
                     // Capturar errores de red o del servidor
-                    console.error("Error al procesar la solicitud:", error);
                     Toastify({
                         text: "Hubo un error al procesar su compra. Inténtelo más tarde.",
                         style: {

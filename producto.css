@@ -3,12 +3,6 @@
   min-height: 100vh;
   grid-template-rows: auto 1fr auto;
 }
-
-.navbar {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .material-symbols-outlined {
   font-variation-settings:
     'FILL' 0,
@@ -58,13 +52,5 @@
   .btn,
   .input-group {
     width: 100%;
-  }
-}
-@media (max-width: 400px) {
-  header {
-    display: flex;
-    flex-direction: column;
-    margin: 2px;
-    justify-content: center;
   }
 }

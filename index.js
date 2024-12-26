@@ -1,4 +1,3 @@
-
 const data = [
   {
     id: 1,
@@ -156,7 +155,7 @@ dataCards(data);
 
 const promise = new Promise((resolve, reject) => {
   setTimeout(() => {
-    resolve("Si jala el código");
+    resolve("¡La promesa se resolvió exitosamente!");
   }, 3000);
 });
 

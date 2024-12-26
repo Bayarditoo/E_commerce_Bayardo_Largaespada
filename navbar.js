@@ -10,7 +10,7 @@ const menu = [
 let menuHtml = [];
 for (const nav of menu) {
   menuHtml.push(
-    `<a class="nav-link p-3 text-white d-flex flex-wrap" href="${nav.href}">${nav.texto}</a>`
+    `<a class="nav-link p-3 text-white d-flex flex-wrap justify-content-around" href="${nav.href}">${nav.texto}</a>`
   );
 }
 
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </li>
 <span></span>
          <li class="nav-item">
-             <button class="btn btn-primary rounded-pill p-2" onclick="logout()">Cerrar sesión</button>
+             <button class="btn btn-primary rounded-pill p-2 m-2" onclick="logout()">Cerrar sesión</button>
          </li>
 `
       : `<li class="nav-item">
