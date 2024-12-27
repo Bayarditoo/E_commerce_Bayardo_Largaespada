@@ -1,1 +1,3 @@
-Arriba Chat GPT GOD
+Eccomerce es un sitio web que permite a los usuarios comprar productos y realizar pagos. El sitio web está diseñado para ser fácil de usar y ofrece una interfaz de usuario atractiva y intuitiva.
+
+El sitio web está diseñado para ser fácil de usar y ofrece una interfaz de usuario atractiva y intuitiva. El sitio web está diseñado para ser fácil de usar y ofrece una interfaz de usuario atractiva y intuitiva.
