@@ -3,21 +3,40 @@
     margin: 0;
     padding: 0;
 }
-body, header, main {
+
+body,
+header,
+main {
     margin: 0;
     padding: 0;
 }
-header, main {
+
+header,
+main {
     margin-bottom: 0;
 }
 
 footer {
     padding: 1px;
-};
+}
+
+;
+
 .material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+}
+
+/* Estilo para el botón de hamburguesa en dispositivos pequeños */
+.custom-toggler {
+    border: none;
+    background-color: transparent;
+}
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    background-size: 1.5em 1.5em;
 }

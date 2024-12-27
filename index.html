@@ -11,14 +11,37 @@
 </head>
 
 <body>
-  <header class="bg-dark d-flex flex-column flex-md-row justify-content-between align-items-center p-3">
-    <div id="navLeft" class="d-flex gap-3">
-      <!-- Los enlaces del menú generados por navbar.js se insertarán aquí -->
-    </div>
-    <div id="navRight" class="d-flex align-items-center gap-3 mt-3 mt-md-0">
-      <!-- Elementos como saludo e icono de carrito generados por navbar.js se insertarán aquí -->
+  <header class="bg-dark p-3">
+    <div class="container">
+      <!-- Botón de hamburguesa para dispositivos pequeños -->
+      <button
+        class="navbar-toggler d-md-none mx-auto mb-3 custom-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarContent"
+        aria-controls="navbarContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <!-- Contenedor colapsable -->
+      <div class="collapse d-md-flex flex-md-row justify-content-between align-items-center" id="navbarContent">
+        <!-- Menú de navegación izquierda -->
+        <div id="navLeft" class="d-flex gap-3 flex-column flex-md-row align-items-center">
+          <!-- Los enlaces del menú generados por navbar.js se insertarán aquí -->
+        </div>
+  
+        <!-- Menú de navegación derecha -->
+        <div id="navRight" class="d-flex align-items-center gap-3 mt-3 mt-md-0 flex-column flex-md-row">
+          <!-- Elementos como saludo e icono de carrito generados por navbar.js se insertarán aquí -->
+        </div>
+      </div>
     </div>
   </header>
+  
+  
   <div class="categorias d-flex justify-content-center flex-wrap bg-dark py-3">
     <div class="container">
       <div class="row justify-content-center">

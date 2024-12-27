@@ -36,10 +36,12 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
         <p id="formLoginMessage" class="poppings-light"></p>
+        <p>Email de usuario: <strong>user@gmail.com</strong></p>
+        <p>Contraseña: <strong>1234</strong></p>
     </form>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const userLogin = { email: "bayardo@gmail.com", password: "1234" };
+            const userLogin = { email: "user@gmail.com", password: "1234" };
             const message = document.querySelector("#formLoginMessage");
             const form = document.querySelector(".loginForm"); // Cambiado a ".loginForm" (por clase)
 

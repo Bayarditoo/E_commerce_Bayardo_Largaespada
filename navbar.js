@@ -10,7 +10,7 @@ const menu = [
 let menuHtml = [];
 for (const nav of menu) {
   menuHtml.push(
-    `<a class="nav-link p-3 text-white d-flex flex-wrap justify-content-around" href="${nav.href}">${nav.texto}</a>`
+    `<a class="nav-link p-3 text-primary d-flex flex-wrap justify-content-around" href="${nav.href}">${nav.texto}</a>`
   );
 }
 
